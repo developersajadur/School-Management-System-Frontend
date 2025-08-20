@@ -1,41 +1,16 @@
-
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
-
-import data from "../../public/data.json"
-import { AppSidebar } from "@/components/Sidebar/app-sidebar"
-import { SiteHeader } from "@/components/Sidebar/site-header"
-import { SectionCards } from "@/components/Sidebar/section-cards"
-import { ChartAreaInteractive } from "@/components/Sidebar/chart-area-interactive"
-import { DataTable } from "@/components/Sidebar/data-table"
-
-export default function Page() {
+export default function HomePage() {
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              <SectionCards />
-              <div className="px-4 lg:px-6">
-                <ChartAreaInteractive />
-              </div>
-              <DataTable data={data} />
-            </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <main className="flex flex-col items-center justify-center min-h-screen text-center p-6">
+      <h1 className="text-4xl font-bold mb-4">Welcome to My App 🚀</h1>
+      <p className="text-muted-foreground mb-6">
+        Manage students, billing, and more — all in one place.
+      </p>
+      <a
+        href="/dashboard"
+        className="rounded-lg bg-primary px-6 py-3 text-white font-medium hover:bg-primary/90"
+      >
+        Go to Dashboard
+      </a>
+    </main>
   )
 }
